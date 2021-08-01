@@ -13,7 +13,8 @@ module.exports = {
     clean: true, // Eliminar los archivos previos en dist
   },
   mode: 'development',
-  watch: true, // Activar el modo watch
+  // Activar el modo watch (no es necesario con webpack dev server)
+  // watch: true,
   resolve: {
     extensions: ['.js'],
     alias: {
@@ -72,4 +73,12 @@ module.exports = {
     }),
     new Dotenv(),
   ],
+  // Webpack dev server
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    historyApiFallback: true,
+    open: true,
+    port: 4000,
+  },
 };
