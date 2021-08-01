@@ -1,5 +1,6 @@
 const path = require('path');
 
+// const BundleAnalizerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -13,6 +14,8 @@ module.exports = {
     clean: true, // Eliminar los archivos previos en dist
   },
   mode: 'development',
+  // Crear un mapa y debbuguear en las devtools pestaña 'source'
+  // devtool: 'source-map',
   // Activar el modo watch (no es necesario con webpack dev server)
   // watch: true,
   resolve: {
@@ -72,6 +75,7 @@ module.exports = {
       ],
     }),
     new Dotenv(),
+    // new BundleAnalizerPlugin(), // Analizar el bundle de nuestra app
   ],
   // Webpack dev server
   devServer: {
